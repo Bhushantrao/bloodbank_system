@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center">Search Donor</h2>
+
+<form method="post" class="mb-4">
+    {% csrf_token %}
+    <input type="text" name="blood_group" class="form-control mb-2" placeholder="Enter Blood Group">
+    <button class="btn btn-primary">Search</button>
+</form>
+
+<table class="table table-bordered">
+    {% for donor in donors %}
+    <tr>
+        <td>{{ donor.name }}</td>
+        <td>{{ donor.phone }}</td>
+        <td>{{ donor.location }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
